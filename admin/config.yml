@@ -2,7 +2,7 @@ backend:
   name: github
   repo: XxzubcovxX/BlogBoticario # <--- CORRIGIDO: Apenas Usuario/Repo
   branch: main
-  base_url: https://oauthgobblogoboticario.vercel.app
+  base_url: https://oauthgobblogoboticario.vercel.app/api
   # O app_id permite o inicio do fluxo de login
   app_id: Ov23li15aDL9Jl3xW7dn 
   site_domain: ambitious-desert-072597610.3.azurestaticapps.net
