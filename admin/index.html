@@ -7,19 +7,51 @@
 </head>
 <body>
   
-  <script>
-    window.addEventListener("message", (event) => {
-      // Filtra mensagens inúteis do React/Webpack
-      if (typeof event.data === 'string' && (event.data.includes('webpack') || event.data.includes('react'))) return;
+  <script>window.CMS_MANUAL_INIT = true;</script>
 
-      console.log("📨 MENSAGEM RECEBIDA NO SITE:", event.data);
-      console.log("📍 Origem da mensagem:", event.origin);
-      
-      if (typeof event.data === 'string' && event.data.includes('authorization')) {
-         alert("OPA! O Token chegou! Verifique o console.");
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'XxzubcovxX/BlogBoticario',
+          branch: 'main',
+          // Sua URL da Vercel QUE FUNCIONOU (sem barra no final)
+          base_url: 'https://oauthgobblogoboticario.vercel.app/api',
+          // O domínio do site para validar a origem da mensagem (segurança)
+          site_domain: 'ambitious-desert-072597610.3.azurestaticapps.net'
+        },
+        
+        // Pastas onde salvar as coisas
+        media_folder: "assets/img/produtos",
+        public_folder: "assets/img/produtos",
+
+        // URLs do site
+        site_url: "https://ambitious-desert-072597610.3.azurestaticapps.net",
+        display_url: "https://ambitious-desert-072597610.3.azurestaticapps.net",
+
+        // Definição dos Produtos
+        collections: [
+          {
+            name: "produtos",
+            label: "Produtos",
+            folder: "content",
+            create: true,
+            slug: "{{slug}}",
+            format: "json",
+            fields: [
+              {label: "Nome do Produto", name: "title", widget: "string"},
+              {label: "Imagem", name: "imagem", widget: "image"},
+              {label: "Preço Atual", name: "preco", widget: "number", value_type: "float"},
+              {label: "Link da Loja/WhatsApp", name: "link_afiliado", widget: "string"},
+              {label: "Categoria", name: "categoria", widget: "select", options: ["Perfumaria", "Corpo e Banho", "Maquiagem", "Cabelos"]}
+            ]
+          }
+        ]
       }
     });
   </script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
