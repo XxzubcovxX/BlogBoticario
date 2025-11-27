@@ -6,6 +6,20 @@
   <title>Painel Administrativo - Maria Cosméticos</title>
 </head>
 <body>
+  
+  <script>
+    window.addEventListener("message", (event) => {
+      // Filtra mensagens inúteis do React/Webpack
+      if (typeof event.data === 'string' && (event.data.includes('webpack') || event.data.includes('react'))) return;
+
+      console.log("📨 MENSAGEM RECEBIDA NO SITE:", event.data);
+      console.log("📍 Origem da mensagem:", event.origin);
+      
+      if (typeof event.data === 'string' && event.data.includes('authorization')) {
+         alert("OPA! O Token chegou! Verifique o console.");
+      }
+    });
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>

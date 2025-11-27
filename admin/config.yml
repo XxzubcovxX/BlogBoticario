@@ -2,17 +2,18 @@ backend:
   name: github
   repo: XxzubcovxX/BlogBoticario
   branch: main
-  # URL da sua Vercel que funcionou
+  # A URL do seu servidor Vercel (sem barra no final)
   base_url: https://oauthgobblogoboticario.vercel.app/api
-  # Domínio do seu site na Azure para segurança
-  site_domain: ambitious-desert-072597610.3.azurestaticapps.net
+  
+  # REMOVI O site_domain PARA TESTAR
+  # site_domain: ... 
 
 media_folder: "assets/img/produtos"
 public_folder: "assets/img/produtos"
 
-site_url: "https://ambitious-desert-072597610.3.azurestaticapps.net"
+# Configurações visuais
 display_url: "https://ambitious-desert-072597610.3.azurestaticapps.net"
-logo_url: "https://logodownload.org/wp-content/uploads/2017/05/o-boticario-logo-1.png"
+# site_url removido temporariamente para evitar conflitos de segurança
 
 collections:
   - name: "produtos"
