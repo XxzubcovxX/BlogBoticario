@@ -42,14 +42,62 @@
         <p style="text-align:center; width:100%">Carregando produtos...</p>
     </main>
 
-    <script>
-        // Script temporário só pra testar se o site sobe
-        document.getElementById('lista-produtos').innerHTML = `
-            <div class="card">
-                <h3>Site em Construção</h3>
-                <p>Em breve novidades!</p>
-            </div>
-        `;
+   <script>
+        async function carregarProdutos() {
+            const container = document.getElementById('lista-produtos');
+            
+            try {
+                // 1. Tenta buscar o arquivo que seu script gerou
+                const response = await fetch('assets/produtos.json');
+                
+                if (!response.ok) {
+                    throw new Error("Arquivo de produtos não encontrado");
+                }
+                
+                const produtos = await response.json();
+
+                // Se a lista estiver vazia
+                if (produtos.length === 0) {
+                    container.innerHTML = '<p>Nenhum produto cadastrado ainda.</p>';
+                    return;
+                }
+
+                // Limpa o texto "Carregando..."
+                container.innerHTML = '';
+
+                // 2. Para cada produto no JSON, cria um Card HTML
+                produtos.forEach(produto => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    
+                    // Ajuste de segurança caso a imagem venha quebrada
+                    const imagem = produto.imagem ? produto.imagem : 'https://via.placeholder.com/250x250?text=Sem+Foto';
+
+                    card.innerHTML = `
+                        <img src="${imagem}" alt="${produto.title}" loading="lazy">
+                        <h3>${produto.title}</h3>
+                        <p class="categoria" style="font-size: 0.9rem; color: #666;">${produto.categoria || ''}</p>
+                        <p class="preco">R$ ${parseFloat(produto.preco).toFixed(2).replace('.', ',')}</p>
+                        <a href="${produto.link_afiliado}" target="_blank" class="btn-comprar">COMPRAR</a>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Erro:", error);
+                // Mostra mensagem amigável se der erro (ex: esqueceu de rodar o script generate-api)
+                container.innerHTML = `
+                    <div class="card">
+                        <h3>Ops!</h3>
+                        <p>Não foi possível carregar os produtos.</p>
+                        <small style="color:red">Dica de Dev: Você rodou 'node scripts/generate-api.js'?</small>
+                    </div>
+                `;
+            }
+        }
+
+        // Executa a função assim que carrega
+        carregarProdutos();
     </script>
 </body>
 </html>
