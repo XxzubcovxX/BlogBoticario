@@ -6,6 +6,52 @@
   <title>Painel Administrativo - Maria Cosméticos</title>
 </head>
 <body>
+  
+  <script>window.CMS_MANUAL_INIT = true;</script>
+
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    console.log("🚀 Iniciando CMS sem travas de segurança...");
+
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'XxzubcovxX/BlogBoticario',
+          branch: 'main',
+          // Sua Vercel
+          base_url: 'https://oauthgobblogoboticario.vercel.app/api',
+          
+          // ⚠️ IMPORTANTE: Removi o site_domain de propósito!
+          // Isso faz o CMS aceitar o token vindo da Vercel sem reclamar.
+        },
+        
+        // Configurações Padrão
+        media_folder: "assets/img/produtos",
+        public_folder: "assets/img/produtos",
+        site_url: "https://ambitious-desert-072597610.3.azurestaticapps.net",
+        display_url: "https://ambitious-desert-072597610.3.azurestaticapps.net",
+
+        collections: [
+          {
+            name: "produtos",
+            label: "Produtos",
+            folder: "content",
+            create: true,
+            slug: "{{slug}}",
+            format: "json",
+            fields: [
+              {label: "Nome", name: "title", widget: "string"},
+              {label: "Imagem", name: "imagem", widget: "image"},
+              {label: "Preço", name: "preco", widget: "number", value_type: "float"},
+              {label: "Link", name: "link_afiliado", widget: "string"},
+              {label: "Categoria", name: "categoria", widget: "select", options: ["Perfumaria", "Corpo", "Make"]}
+            ]
+          }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
