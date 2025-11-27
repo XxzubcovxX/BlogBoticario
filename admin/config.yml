@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: https://github.com/XxzubcovxX/BlogBoticario.git # <--- TROQUE ISSO PELO SEU REPO REAL
+  branch: main
+  base_url: https://github.com # Usado para autenticação (veremos no próximo passo)
+
+# Onde as imagens que sua mãe subir vão ficar salvas no repo
+media_folder: "assets/img/produtos"
+public_folder: "assets/img/produtos"
+
+# Configurações visuais do painel
+site_url: "https://ambitious-desert-072597610.3.azurestaticapps.net"
+display_url: "https://ambitious-desert-072597610.3.azurestaticapps.net"
+logo_url: "https://logodownload.org/wp-content/uploads/2017/05/o-boticario-logo-1.png" # Um mimo visual
+
+collections:
+  - name: "produtos" # Nome técnico da coleção
+    label: "Produtos" # Nome que aparece pra sua mãe
+    folder: "content" # Pasta onde salva os JSONs
+    create: true # Permite criar novos
+    slug: "{{slug}}" # Nome do arquivo será o nome do produto
+    format: "json" # Salvar como JSON (mais fácil pro seu JS ler depois)
+    fields:
+      - {label: "Nome do Produto", name: "title", widget: "string"}
+      - {label: "Imagem", name: "imagem", widget: "image"}
+      - {label: "Preço Atual", name: "preco", widget: "number", value_type: "float"}
+      - {label: "Link da Loja/WhatsApp", name: "link_afiliado", widget: "string"}
+      - {label: "Categoria", name: "categoria", widget: "select", options: ["Perfumaria", "Corpo e Banho", "Maquiagem", "Cabelos"]}
