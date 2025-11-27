@@ -5,7 +5,7 @@ backend:
   base_url: https://oauthgobblogoboticario.vercel.app/api
   # O app_id permite o inicio do fluxo de login
   app_id: Ov23li15aDL9Jl3xW7dn 
-
+  site_domain: ambitious-desert-072597610.3.azurestaticapps.net
 # Onde as imagens que sua mãe subir vão ficar salvas no repo
 media_folder: "assets/img/produtos"
 public_folder: "assets/img/produtos"
