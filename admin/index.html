@@ -4,61 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Painel Administrativo - Maria Cosméticos</title>
-  
-  <script>
-    window.CMS_MANUAL_INIT = true;
-  </script>
 </head>
 <body>
-  
-  <h3 style="text-align: center; color: #666; margin-top: 20px;">Carregando Painel...</h3>
-
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <script>
-    console.log("🚀 Iniciando configuração manual do CMS...");
-
-    // Tente rodar dentro de um try/catch para ver se tem erro de sintaxe
-    try {
-      CMS.init({
-        config: {
-          backend: {
-            name: 'github',
-            repo: 'XxzubcovxX/BlogBoticario',
-            branch: 'main',
-            base_url: 'https://oauthgobblogoboticario.vercel.app/api',
-            // Importante: Remova o site_domain se estiver dando erro de CORS, 
-            // ou mantenha se estiver configurado
-            site_domain: 'ambitious-desert-072597610.3.azurestaticapps.net' 
-          },
-          media_folder: "assets/img/produtos",
-          public_folder: "assets/img/produtos",
-          site_url: "https://ambitious-desert-072597610.3.azurestaticapps.net",
-          display_url: "https://ambitious-desert-072597610.3.azurestaticapps.net",
-          collections: [
-            {
-              name: "produtos",
-              label: "Produtos",
-              folder: "content",
-              create: true,
-              slug: "{{slug}}",
-              format: "json",
-              fields: [
-                {label: "Nome", name: "title", widget: "string"},
-                {label: "Imagem", name: "imagem", widget: "image"},
-                {label: "Preço", name: "preco", widget: "number", value_type: "float"},
-                {label: "Link", name: "link_afiliado", widget: "string"},
-                {label: "Categoria", name: "categoria", widget: "select", options: ["Perfumaria", "Corpo", "Make"]}
-              ]
-            }
-          ]
-        }
-      });
-      console.log("✅ CMS.init() executado com sucesso!");
-    } catch (e) {
-      console.error("❌ ERRO CRÍTICO AO INICIAR CMS:", e);
-      alert("Erro ao iniciar o painel. Verifique o console.");
-    }
-  </script>
 </body>
 </html>
