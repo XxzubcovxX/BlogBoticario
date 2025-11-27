@@ -1,0 +1,9 @@
+{
+  "mimeTypes": {
+    ".yml": "text/yaml",
+    ".yaml": "text/yaml"
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
+}
