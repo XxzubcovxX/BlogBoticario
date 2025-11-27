@@ -3,6 +3,14 @@
     ".yml": "text/yaml",
     ".yaml": "text/yaml"
   },
+  "routes": [
+    {
+      "route": "/admin/config.yml",
+      "headers": {
+        "Content-Type": "text/yaml"
+      }
+    }
+  ],
   "navigationFallback": {
     "rewrite": "/index.html"
   }

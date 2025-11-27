@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: XxzubcovxX/BlogBoticario
+  branch: main
+  # URL da sua Vercel que funcionou
+  base_url: https://oauthgobblogoboticario.vercel.app/api
+  # Domínio do seu site na Azure para segurança
+  site_domain: ambitious-desert-072597610.3.azurestaticapps.net
+
+media_folder: "assets/img/produtos"
+public_folder: "assets/img/produtos"
+
+site_url: "https://ambitious-desert-072597610.3.azurestaticapps.net"
+display_url: "https://ambitious-desert-072597610.3.azurestaticapps.net"
+logo_url: "https://logodownload.org/wp-content/uploads/2017/05/o-boticario-logo-1.png"
+
+collections:
+  - name: "produtos"
+    label: "Produtos"
+    folder: "content"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - {label: "Nome do Produto", name: "title", widget: "string"}
+      - {label: "Imagem", name: "imagem", widget: "image"}
+      - {label: "Preço Atual", name: "preco", widget: "number", value_type: "float"}
+      - {label: "Link da Loja/WhatsApp", name: "link_afiliado", widget: "string"}
+      - {label: "Categoria", name: "categoria", widget: "select", options: ["Perfumaria", "Corpo e Banho", "Maquiagem", "Cabelos"]}
