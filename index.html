@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Cosméticos - Consultora O Boticário</title>
+    <style>
+        /* Um CSS básico pra não ficar feio */
+        body { font-family: sans-serif; margin: 0; padding: 20px; background: #f9f9f9; }
+        header { text-align: center; margin-bottom: 40px; }
+        .logo { color: #375743; font-size: 2rem; font-weight: bold; } /* Verde Boticário */
+        .grid-produtos { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .card img { max-width: 100%; height: auto; border-radius: 4px; }
+        .preco { color: #375743; font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
+        .btn-comprar { 
+            display: inline-block; 
+            background-color: #375743; 
+            color: white; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold;
+        }
+        .btn-comprar:hover { background-color: #2a4233; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Maria Cosméticos</div>
+        <p>Revendedora Autorizada O Boticário</p>
+    </header>
+
+    <main class="grid-produtos" id="lista-produtos">
+        <p style="text-align:center; width:100%">Carregando produtos...</p>
+    </main>
+
+    <script>
+        // Script temporário só pra testar se o site sobe
+        document.getElementById('lista-produtos').innerHTML = `
+            <div class="card">
+                <h3>Site em Construção</h3>
+                <p>Em breve novidades!</p>
+            </div>
+        `;
+    </script>
+</body>
+</html>
