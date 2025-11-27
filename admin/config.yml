@@ -2,12 +2,14 @@ backend:
   name: github
   repo: https://github.com/XxzubcovxX/BlogBoticario.git # <--- TROQUE ISSO PELO SEU REPO REAL
   branch: main
+  site_domain: ambitious-desert-072597610.3.azurestaticapps.net # Sua URL sem https
   base_url: https://github.com # Usado para autenticação (veremos no próximo passo)
+  auth_endpoint: auth/id # Isso é um detalhe técnico, explicarei abaixo
 
 # Onde as imagens que sua mãe subir vão ficar salvas no repo
 media_folder: "assets/img/produtos"
 public_folder: "assets/img/produtos"
-local_backend: true
+
 
 # Configurações visuais do painel
 site_url: "https://ambitious-desert-072597610.3.azurestaticapps.net"
